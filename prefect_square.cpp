@@ -1,6 +1,14 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
-
+// with math.h
+// bool isPerfectSquare(int num){
+//     int sr = sqrt(num);
+//     if(sr*sr == num){
+//         return true;
+//     }
+//     return false;
+// }
 bool isPerfectSquare(int n)
 {
     for (int i = 1; i * i <= n; i++) {
