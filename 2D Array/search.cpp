@@ -14,7 +14,7 @@ int main(){
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             if(arr[i][j]==target){
-                cout<<arr[i][j]<<" ";
+                cout<i<<" "<<j<<" ";
             }
         }
     }
