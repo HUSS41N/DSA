@@ -23,6 +23,15 @@ int lastOcc(int arr[],int n,int i,int target){
     }
     return -1;
 }
+int lastOccrence(int arr[],int i,int n,int target){
+    if(i<0){
+        return -1;
+    }
+    if(arr[i]==target){
+        return i;
+    }
+    return lastOccrence(arr,i-1,n,target);
+}
 int main()
 {   int n;
     cin>>n;
