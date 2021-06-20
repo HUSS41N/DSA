@@ -51,3 +51,29 @@ int main(){
 
 
 
+//  [[1,2,3],[4,5,6],[7,8,9]]
+//  Result 1 2 3 6 9 8 7 4 5
+//  row_start = 0;
+//  row_End = n -1;
+//  col_Start = 0;
+//  col_end = m -1;
+//  1 2 3 - > [0,0] [0,1] [0,2] [row_start,col_Start] [row_start,col_Start++] [row_start][col_Start++/col_end]
+//  for(int i=col_Start;i<=col_end;i++){
+//      cout<<arr[row_start][i];
+//  }
+//  row_start++;
+//  res 1 2 3 - >
+//  3 6 9 - >  [1,2] [2,2]  [row_start++,col_end] [row_start++/row_End,col_end]
+//  res 1 2 3 6 9
+//  col_end--;
+
+//  9 8 7 ->  [2,1] [2,0] [row_End,col_end--] [row_End][col_end--/col_Start]
+//  for(int i = col_end;i>=col_Start;i--){
+//      cout<<arr[row_End][i]<<" ";
+//  }
+//  1 2 3 6 9 8 7
+//  row_End--;
+//  7 4 [1,0]  [row_End--,col_Start]; 
+//     for(int i=row_End;i>=row_start;i--){
+//         cout<<arr[i][col_Start]<<" ";
+//     }
