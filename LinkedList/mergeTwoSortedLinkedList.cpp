@@ -12,6 +12,27 @@ class node{
         }
 };
 
+node* recursiveMerge(node* &head1,node* &head2){
+    // base case
+    if(head1==NULL){
+        return head2;
+    } 
+    if(head2==NULL){
+        return head1;
+    }
+    node* result;
+    if(head1->data < head2->data){
+        // add it to result 
+        result = head1;
+        // call the function again for the nxt node of result by mving the used value(head1)
+        result->next = recursiveMerge(head1->next,head2);
+    } else {
+        result = head2;
+        result->next = recursiveMerge(head1,head2->next);
+    }
+    return result;
+}
+
 node* merge(node* &head1,node* &head2){
     // both pointer for 2 lists
     node* p1 = head1;
