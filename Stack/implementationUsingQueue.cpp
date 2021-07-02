@@ -60,3 +60,61 @@ int main(){
     test.pop();
     test.pop();
 }
+// making pop costly
+#include <bits/stdc++.h>
+using namespace std;
+
+class Stack{
+    int stack_size;
+    queue<int> q1;
+    queue<int> q2;
+
+    public:
+        Stack(){
+            stack_size = 0;
+        }
+        
+        void push(int value){
+            // we are making pop costly 
+            // just push the value to q1;
+            q1.push(value);
+            stack_size++;
+        }
+
+        void pop(){
+            if(q1.empty()){
+                cout<<"Queue is empty"<<endl;
+                return;
+            }
+            // copy the values to q2 but leave one value
+            while(q1.size()!=1){
+                q2.push(q1.front());
+                q1.pop();
+            }
+            // delete the left element 
+            q1.pop();
+            stack_size--;
+            
+            // swap the name of both queue so q2 is empty again 
+            queue<int> temp;
+            temp = q1;
+            q1 = q2;
+            q2 = temp; 
+        }
+
+        int size(){
+            return stack_size;
+        }
+};
+
+int main(){
+    Stack test;
+    test.push(1);
+    test.push(2);
+    test.push(3);
+    test.pop();
+    test.pop();
+    test.pop();
+    test.pop();
+    test.pop();
+}
