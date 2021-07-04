@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// https://www.geeksforgeeks.org/expression-contains-redundant-bracket-not/
 int main(){
     string s;
     cin>>s;
