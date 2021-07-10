@@ -20,6 +20,17 @@ int sumOfAllNodes(Node* root){
     return sumOfAllNodes(root->left) + sumOfAllNodes(root->right) + root->data;
 }
 
+int sumOfAllNodesStatic(Node* root){
+    static int sum = 0;
+    if(root==NULL){
+        return sum;
+    }
+    sum += root->data;
+    sumOfAllNodesStatic(root->left);
+    sumOfAllNodesStatic(root->right);
+    return sum;
+}
+
 int main(){
     Node* root = new Node(1);
     root->left = new Node(2);
