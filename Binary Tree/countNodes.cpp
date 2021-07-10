@@ -20,6 +20,18 @@ int countNodes(Node* root){
   }
   return countNodes(root->left) + countNodes(root->right) + 1;
 }
+// count nodes using static variable
+int countNodes(Node* root){
+    static int counter = 0;
+    if(root==NULL){
+        return 0;
+    }
+    counter++;
+    countNodes(root->left);
+    countNodes(root->right);
+    return counter;
+}
+
 
 // count nodes using level order algoritham
 int countNodes(Node* root){
