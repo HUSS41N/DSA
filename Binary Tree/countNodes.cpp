@@ -13,7 +13,15 @@ class Node{
             right = NULL;
         }
 };
+// count nodes recursivly
+int countNodes(Node* root){
+  if(root==NULL){
+      return 0;
+  }
+  return countNodes(root->left) + countNodes(root->right) + 1;
+}
 
+// count nodes using level order algoritham
 int countNodes(Node* root){
     int counter = 0;
     if(root==NULL){
