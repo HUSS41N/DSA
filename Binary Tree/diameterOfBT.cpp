@@ -37,7 +37,21 @@ int diameterOfTree(Node* root){
 
     return max(heightOfLeftSubtree + heightOfRightSubtree + 1,max(diameterOfLeftSubtree,diameterOfRightSubtree));
 }
+// o(n)
+int solveDiameter(Node* root,int &res){
+    if(root==NULL){
+        return 0;
+    }
+    int left = solveDiameter(root->left,res);
+    int right = solveDiameter(root->right,res);
 
+    int temp = max(left,right) + 1;
+    int ans = max(temp,1+left+right);
+    // we are holding our answer in the res variable in main fuction
+    res = max(res,ans);
+    // temp return to keep the recursion 
+    return temp;
+}
 int main(){
     Node* root = new Node(1);
     root->left = new Node(2);
