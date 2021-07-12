@@ -38,6 +38,27 @@ bool isTreeBalanced(Node* root){
         return false;
     }
 }
+// on without any helper function 
+bool isTreeBalancedOn(Node* root,int &height){
+    if(root==NULL){
+        return true;
+    }
+    int leftHeight = 0;
+    int rightHeight = 0;
+    if(!isTreeBalancedOn(root->left,leftHeight)){
+        return false;
+    }
+    if(!isTreeBalancedOn(root->right,rightHeight)){
+        return false;
+    }
+    height = max(leftHeight,rightHeight) + 1;
+    if((leftHeight-rightHeight)<=1){
+        return true;
+    } else {
+        return false;
+    }
+
+}
 int main(){
      Node* root = new Node(1);
     root->left = new Node(2);
@@ -46,5 +67,6 @@ int main(){
     root->left->right = new Node(5);
     root->left->right->right = new Node(6);
     root->left->right->left = new Node(6);
-    cout<<isTreeBalanced(root);
+    int height = 0;
+    cout<<isTreeBalancedOn(root,height);
 }
