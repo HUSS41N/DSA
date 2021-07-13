@@ -50,6 +50,30 @@ void rightView(Node *root)
     }
 }
 
+// without null
+void rightView(Node* root){
+    queue<Node*> q;
+    if(root==NULL){
+        return;
+    }
+    q.push(root);
+    while(!q.empty()){
+        int size = q.size();
+        while(size--){
+            Node* front = q.front();
+            q.pop();
+            if(size==0){
+                cout<<front->data<<" ";
+            } 
+            if(front->left){
+                q.push(front->left);
+            }
+            if(front->right){
+                q.push(front->right);
+            }
+        }
+    }
+}
 int main()
 {
     Node *root = new Node(1);
