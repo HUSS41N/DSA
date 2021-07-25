@@ -30,6 +30,16 @@ void insertAtTail(Node* &head,int val){
     }
     temp->next = newNode;
 }
+// middle of the linked list in single traversal
+void middleOfLinkedList(Node* head){
+    Node* first = head;
+    Node* second = head;
+    while(second!=NULL){
+        second = second->next->next;
+        first = first->next;
+    }
+    cout<<first->data<<endl;
+}
 void middleOfTheList(Node* head){
     Node* temp = head;
     int size = 0;
