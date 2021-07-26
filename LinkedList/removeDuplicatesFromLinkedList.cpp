@@ -58,6 +58,20 @@ Node* removeDuplicates(Node* head){
     }
     return newHead;
 }
+// using sets
+Node* removeDuplicates(Node* head){
+    Node* newHead = NULL;
+    unordered_set<int> set;
+    Node* temp = head;
+    while(temp!=NULL){
+        set.insert(temp->data);
+        temp = temp->next;
+    }
+    for(auto num: set){
+        insertion(newHead,num);
+    }
+    return newHead;
+}
 int main(){
     Node* head = NULL;
     insertion(head,3);
