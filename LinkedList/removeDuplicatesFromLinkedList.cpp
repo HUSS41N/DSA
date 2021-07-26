@@ -33,7 +33,22 @@ void print(Node* head){
     }
     cout<<"NULL"<<endl;
 }
-
+// best solution using single tarversal and modifing the smae linked list
+void removeDuplicates(Node* head){
+    Node* current = head;
+    Node* previous = NULL;
+    unordered_set<int> set;
+    while(current != NULL){
+        if(set.find(current->data) != set.end()){
+            previous->next = current->next;
+            delete(current);
+        } else {
+            set.insert(current->data);
+            previous = current;
+        }
+        current = previous->next;
+    }
+}
 // naive approach
 // make array from linked list
 // remove duplicates from array
