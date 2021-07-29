@@ -34,6 +34,31 @@ void printList(Node* head){
     cout<<"NULL"<<endl;
 }
 
+// wihtout array
+void swapNodes(Node* &head,int k){
+    int length = 0;
+    Node* temp = head;
+    while(temp!=NULL){
+        length++;
+        temp = temp->next;
+    }
+    Node* first;
+    Node* second;
+    int counter = 0;
+    temp = head;
+    while(temp!=NULL){
+        if(counter == k - 1 ){
+            first = temp;
+        }
+        if(counter == length - k){
+            second = temp;
+        }
+        counter++;
+        temp = temp->next;
+    }
+    swap(first->data,second->data);
+}
+// with array
 void swapNodes(Node* &head,int k){
     vector<int> arr;
     Node* temp = head;
