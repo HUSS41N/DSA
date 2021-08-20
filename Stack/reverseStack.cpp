@@ -1,6 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// easy approch
+stack<int> reverseStack(stack<int> s){
+    stack<int> newS;
+    while(s.empty() == false){
+        int top = s.top();
+        s.pop();
+        newS.push(top);
+    }
+    return newS;
+}
+
 void reverseUtil(stack<int> &s,int e){
     if(s.empty()){
         s.push(e);
