@@ -24,6 +24,14 @@ void invertABinaryTree(Node* root,Node* &invertedRoot){
     invertABinaryTree(root->right,invertedRoot->left);
 }
 
+Node* invertATree(Node* &root){
+    if(root==NULL){
+        return NULL;
+    }
+    invertATree(root->left);
+    invertATree(root->right);
+    swap(root->left,root->right);
+}
 void inorderTraversal(Node* root){
     if(root==NULL){
         return;
@@ -38,8 +46,10 @@ int main(){
     root->right = new Node(3);
     root->left->left = new Node(4);
     root->left->right = new Node(5);
-    // inorderTraversal(root);
-    Node* invertedRoot = NULL;
-    invertABinaryTree(root,invertedRoot);
-    inorderTraversal(invertedRoot);
+    // // inorderTraversal(root);
+    // Node* invertedRoot = NULL;
+    // invertABinaryTree(root,invertedRoot);
+    // inorderTraversal(invertedRoot);
+    invertATree(root);
+    inorderTraversal(root);
 }
