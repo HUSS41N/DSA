@@ -74,6 +74,34 @@ void rightView(Node* root){
         }
     }
 }
+    vector<int> rightView(Node *root)
+    {
+       if(root==NULL){
+       return {};
+   }
+   vector<int> ans;
+   queue<Node*> q;
+   q.push(root);
+   q.push(NULL);
+   ans.push_back(root->data);
+   while(!q.empty()){
+       Node* front = q.front();
+       q.pop();
+       if(front!=NULL){
+         if(front->left){
+           q.push(front->left);
+       }
+       if(front->right){
+           q.push(front->right);
+       }   
+       } else if(!q.empty()){
+           int t = q.back()->data;
+           ans.push_back(t);
+           q.push(NULL);
+       }
+   }
+   return ans;
+    }
 int main()
 {
     Node *root = new Node(1);
