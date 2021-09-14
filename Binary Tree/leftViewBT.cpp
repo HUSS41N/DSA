@@ -42,7 +42,30 @@ void leftView(Node* root){
         }
     }
 }
-
+void leftView(Node* root){
+    if(root==NULL){
+        return;
+    }
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+    cout<<root->data<<" ";
+    while(!q.empty()){
+        Node* front = q.front();
+        q.pop();
+        if(front!=NULL){
+            if(front->left){
+                q.push(front->left);
+            }
+            if(front->right){
+                q.push(front->right);
+            }
+        } else if (!q.empty()){
+            cout<<q.front()->data<<" ";
+            q.push(NULL);
+        }
+    }
+}
 int main()
 {
     Node *root = new Node(1);
