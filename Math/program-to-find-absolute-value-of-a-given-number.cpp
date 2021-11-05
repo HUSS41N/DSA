@@ -10,3 +10,12 @@ int main(){
     cout<<n<<endl;
 }
 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    cout<<abs(n);
+}
+
